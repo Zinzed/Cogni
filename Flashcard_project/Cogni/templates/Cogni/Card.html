@@ -1,0 +1,12 @@
+<!--HTML Code from https://realpython.com/django-flashcards-app/-->
+
+<article style="border: 1px solid #ccc; border-radius: 8px; padding: 16px; margin: 16px 0; width: 300px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+   <div style="background-color: #f0f0f0; padding: 8px; border-radius: 4px; margin-bottom: 8px;">
+        <h4 style="margin: 0;">{{ card.question }}</h4>
+   </div>
+    <div style="background-color: #e6f7ff; padding: 8px; border-radius: 4px;">
+        <p style="margin: 0;">{{ card.answer }}</p>
+    </div>
+    <a href="{% url 'CardUpdate' card.id %}" role="button">Edit Card</a>
+    <a href="{% url 'CardDelete' pk=card.pk %}">Delete</a>
+</article>

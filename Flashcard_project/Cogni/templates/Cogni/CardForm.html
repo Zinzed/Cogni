@@ -1,0 +1,23 @@
+<!-- code below from https://realpython.com/django-flashcards-app/
+with some modifications-->
+{% extends "Cogni/index.html" %}
+
+{% block content %}
+    {% load static %}
+    <div style="max-width: 400px; margin: auto;">
+        {% if card %}
+            <h2 style="color: #333; text-align: center;">Edit Card</h2>
+        {% else %}
+            <h2 style="color: #333; text-align: center;">Create New Card</h2>
+        {% endif %}
+
+        <form method="post" style="background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" value="Save Card" style="background-color: #2196F3; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">
+        </form>
+
+        <a href="{% url 'CardList' %}" style="display: block; text-align: center; margin-top: 10px; color: #2196F3; text-decoration: none;">Cancel</a>
+    </div>
+{% endblock %}

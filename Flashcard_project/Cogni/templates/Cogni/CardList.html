@@ -1,0 +1,20 @@
+{% extends "Cogni/index.html" %}
+{% load humanize %}
+
+{% block content %}
+<h2>Study Flashcards</h2>
+
+{% regroup object_list by box as cards_by_box %}
+
+{% for box in cards_by_box %}
+    {% ifchanged %}
+    <h3>⭐ {{ box.grouper | ordinal }} Deck</h3>
+    {% endifchanged %}
+    {% for card in box.list %}
+        {% include "Cogni/card.html" with card=card %}
+
+    {% endfor %}
+{% endfor %}
+
+ <a href="{% url 'CardCreate' %}" role="button">Create New Card</a>
+{%endblock %}

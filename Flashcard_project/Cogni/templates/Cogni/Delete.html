@@ -1,0 +1,17 @@
+{% extends "Cogni/index.html" %}
+
+{% block content %}
+    <div style="max-width: 400px; margin: auto;">
+        <h2 style="color: #333; text-align: center;">Delete Card</h2>
+        <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;">
+            <p style="margin-bottom: 20px;">Are you sure you want to delete the card "{{ object.question }}"?</p>
+
+            <form method="post" action="{% url 'CardDelete' pk=object.pk %}">
+                {% csrf_token %}
+                <button type="submit" style="background-color: #2196F3; color: #fff; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Yes, delete</button>
+            </form>
+
+            <a href="{% url 'CardList' %}" style="display: block; margin-top: 10px; color: #2196F3; text-decoration: none;">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

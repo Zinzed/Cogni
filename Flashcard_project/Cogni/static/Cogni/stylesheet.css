@@ -1,0 +1,25 @@
+body {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+header img {
+    max-width: 100px;
+    margin-right: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+main {
+    text-align: center;
+    padding: 20px;
+}
